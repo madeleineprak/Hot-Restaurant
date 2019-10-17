@@ -9,7 +9,7 @@ var PORT = process.env.PORT || 3000;
 // Express data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
+// app.use(express.static("public"));
 
 var reservations = [
     {

@@ -13,44 +13,51 @@ app.use(express.json());
 
 var reservations = [
     {
-        name: "eater",
-        phoneNumber: "123",
-        email: "123",
-        id: 1
+        name: "John",
+        phoneNumber: "(425)-111-1111",
+        email: "john@gmail.com",
+        id: 50
     }
 ];
 
 var waitlist = [
     {
-        name: "waiter",
-        phoneNumber: "123",
-        email: "123",
-        id: 1
+        name: "Jane",
+        phoneNumber: "(360)-222-2222",
+        email: "jane@gmail.com",
+        id: 7
     }
 ]
 
 // Routes
+
+// Home
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "/public/index.html"))
 });
 
+// Table View
 app.get("/tables", function(req, res) {
     res.sendFile(path.join(__dirname, "/public/tables.html"))
 });
 
+// Reservation Page
 app.get("/reserve", function(req, res) {
     res.sendFile(path.join(__dirname, "/public/reserve.html"))
 });
 
+// Displays json of current tables
 app.get("/tables/current", function(req, res) {
     return res.json(reservations);
 });
 
+// Displays json of waiting tables
 app.get("/tables/waiting", function(req, res) {
     return res.json(waitlist);
 });
 
-app.get("/tables/current/:id", function(req, res) {
+// Displays reservation info based on id
+app.get("/tables/:id", function(req, res) {
     var chosen = parseInt(req.params.id);
     console.log(chosen);
     for (var i = 0; i < reservations.length; i++) {
@@ -58,21 +65,18 @@ app.get("/tables/current/:id", function(req, res) {
             return res.json(reservations[i]);
         }
     }
-
     for (var i = 0; i < waitlist.length; i++) {
         if (chosen == waitlist[i].id) {
             return res.json(waitlist[i]);
         }
     }
-
     return res.json(false);
-})
+});
 
+// Post for current tables
 app.post("/tables/current", function(req, res) {
     var newReservation = req.body;
-
     newReservation.name = newReservation.name.replace(/\s+/g, "").toLowerCase();
-
     console.log(newReservation);
     console.log(reservations);
     if (reservations.length < 5) {
@@ -82,7 +86,22 @@ app.post("/tables/current", function(req, res) {
         waitlist.push(newReservation);
         console.log("pushed to waitlist");
     }
+    res.json(newReservation);
+});
 
+// Post for waiting tables
+app.post("/tables/waiting", function(req, res) {
+    var newReservation = req.body;
+    newReservation.name = newReservation.name.replace(/\s+/g, "").toLowerCase();
+    console.log(newReservation);
+    console.log(reservations);
+    if (reservations.length < 5) {
+        reservations.push(newReservation);
+        console.log("pushed to reservations");
+    } else {
+        waitlist.push(newReservation);
+        console.log("pushed to waitlist");
+    }
     res.json(newReservation);
 });
 

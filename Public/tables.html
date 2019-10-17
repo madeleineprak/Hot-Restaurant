@@ -91,8 +91,10 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
+        var url = "http://localhost:3000";
+
+        // Display current reservations on table page
         function displayReservations() {
-            var url = "http://localhost:3000";
             $.get(url + "/tables/current/", function (data) {
                 for (var i = 0; i < data.length; i++) {
                     var currentPosition = i + 1;
@@ -106,8 +108,8 @@
             });
         }
 
+        // Display waiting reservations on table page
         function displayWaitlist() {
-            var url = "http://localhost:3000";
             $.get(url + "/tables/waiting/", function (data) {
                 for (var i = 0; i < data.length; i++) {
                     var currentPosition = i + 1;
@@ -120,6 +122,8 @@
                 }
             });
         }
+
+        // Initial render
         displayReservations();
         displayWaitlist();
     </script>

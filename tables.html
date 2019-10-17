@@ -13,8 +13,15 @@
         .header {
             padding: 2rem 5rem;
         }
+        .title {
+            padding: 1rem 0;
+            padding-left: 1rem;
+        }
         h1, h4 {
             font-weight: 700;
+        }
+        .card-panel {
+            border: 1px solid grey;
         }
         .gerar-head {
             width: 3rem;
@@ -28,16 +35,44 @@
                 <!-- <span><img class="gerar-head left-align" src="photos/gerar.png" alt="Gerar Head"></span> -->
                 <h1>Hot Restaurant</h1> 
                 <div class="divider"></div>
-                <h4>Book your seat before they are all gone!</h4>
+                <h4>Current Reservations and Waiting List</h4>
                 <div class="section">
-                    <a class="waves-effect waves-light btn" href="tables.html">View Tables</a>
                     <a class="waves-effect waves-light btn">Make Reservation</a>
+                    <a class="waves-effect waves-light btn" href="index.html"><i class="material-icons">home</i></a>
                 </div>
             </div>
+            <section>
+                <h5 class="grey lighten-4 title">Current Reservations</h5>
+                <table class="s12 m10 offset-m1">
+                    <thead>
+                        <tr>
+                            <td>Position</td>
+                            <td>Name</td>
+                        </tr>
+                    </thead>
+                    <tbody id="table-list">
+                    </tbody>
+                </table>
+            </section>
+            <section>
+                <h5 class="grey lighten-4 title">Waitlist</h5>
+                <table class="s12 m10 offset-m1">
+                    <thead>
+                        <tr>
+                            <td>Position</td>
+                            <td>Name</td>
+                        </tr>
+                    </thead>
+                    <tbody id="wait-list">
+                    </tbody>
+                </table>
+            </section>
         </div>
     </div>
     <div class="container">
         <div class="footer">
+            <a href="#">Clear Table</a>
+            <span> | </span>
             <a href="#">API Table Link</a>
             <span> | </span>
             <a href="#">API Wait List</a>

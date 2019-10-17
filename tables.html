@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Hot Restaurant</title>
+    <style>
+        .header {
+            padding: 2rem 5rem;
+        }
+        .title {
+            padding: 1rem 0;
+            padding-left: 1rem;
+        }
+        h1, h4 {
+            font-weight: 700;
+        }
+        .card-panel {
+            border: 1px solid grey;
+        }
+        .gerar-head {
+            width: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="col s12 m10 offset-m1">
+            <div class="section center-align header grey lighten-4">
+                <!-- <span><img class="gerar-head left-align" src="photos/gerar.png" alt="Gerar Head"></span> -->
+                <h1>Hot Restaurant</h1> 
+                <div class="divider"></div>
+                <h4>Current Reservations and Waiting List</h4>
+                <div class="section">
+                    <a class="waves-effect waves-light btn" href="reserve.html">Make Reservation</a>
+                    <a class="waves-effect waves-light btn" href="index.html"><i class="material-icons">home</i></a>
+                </div>
+            </div>
+            <section>
+                <h5 class="grey lighten-4 title">Current Reservations</h5>
+                <table class="s12 m10 offset-m1">
+                    <thead>
+                        <tr>
+                            <td>Position</td>
+                            <td>Name</td>
+                        </tr>
+                    </thead>
+                    <tbody id="table-list">
+                    </tbody>
+                </table>
+            </section>
+            <section>
+                <h5 class="grey lighten-4 title">Waitlist</h5>
+                <table class="s12 m10 offset-m1">
+                    <thead>
+                        <tr>
+                            <td>Position</td>
+                            <td>Name</td>
+                        </tr>
+                    </thead>
+                    <tbody id="wait-list">
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+    <div class="container">
+        <div class="footer">
+            <a href="#">Clear Table</a>
+            <span> | </span>
+            <a href="#">API Table Link</a>
+            <span> | </span>
+            <a href="#">API Wait List</a>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>      
+</body>
+</html>

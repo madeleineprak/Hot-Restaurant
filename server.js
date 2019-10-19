@@ -50,12 +50,12 @@ app.get("/reserve", function(req, res) {
 });
 
 // Displays json of current tables
-app.get("/tables/current", function(req, res) {
+app.get("/api/tables/", function(req, res) {
     return res.json(reservations);
 });
 
 // Displays json of waiting tables
-app.get("/tables/waiting", function(req, res) {
+app.get("/api/waitlist/", function(req, res) {
     return res.json(waitlist);
 });
 
@@ -77,7 +77,7 @@ app.get("/tables/:id", function(req, res) {
 });
 
 // Post for current tables
-app.post("/tables/current", function(req, res) {
+app.post("/api/tables/", function(req, res) {
     var newReservation = req.body;
     newReservation.name = newReservation.name.replace(/\s+/g, "").toLowerCase();
     console.log(newReservation);
@@ -93,7 +93,7 @@ app.post("/tables/current", function(req, res) {
 });
 
 // Post for waiting tables
-app.post("/tables/waiting", function(req, res) {
+app.post("/api/waitlist/", function(req, res) {
     var newReservation = req.body;
     newReservation.name = newReservation.name.replace(/\s+/g, "").toLowerCase();
     console.log(newReservation);
@@ -106,6 +106,13 @@ app.post("/tables/waiting", function(req, res) {
         console.log("pushed to waitlist");
     }
     res.json(newReservation);
+});
+
+// Clears tables
+app.get("/api/clear/", function(req, res) {
+    reservations.length = 0;
+    waitlist.length = 0;
+    res.json({ok: true});
 });
 
 app.listen(PORT, function() {

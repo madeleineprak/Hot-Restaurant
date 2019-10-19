@@ -99,11 +99,11 @@
     </div>
     <div class="container">
         <div class="footer">
-            <a href="#">Clear Table</a>
+            <a href="/api/clear/">Clear Table</a>
             <span> | </span>
-            <a href="#">API Table Link</a>
+            <a href="/api/tables/">API Table Link</a>
             <span> | </span>
-            <a href="#">API Wait List</a>
+            <a href="/api/waitlist/">API Wait List</a>
         </div>
     </div>
     <!-- jQuery -->
@@ -115,7 +115,7 @@
 
         // Display current reservations on table page
         function displayReservations() {
-            $.get(url + "/tables/current/", function (data) {
+            $.get(url + "/api/tables/", function (data) {
                 for (var i = 0; i < data.length; i++) {
                     var currentPosition = i + 1;
                     var position = $("<td>").text(currentPosition);
@@ -130,7 +130,7 @@
 
         // Display waiting reservations on table page
         function displayWaitlist() {
-            $.get(url + "/tables/waiting/", function (data) {
+            $.get(url + "/api/waitlist/", function (data) {
                 for (var i = 0; i < data.length; i++) {
                     var currentPosition = i + 1;
                     var position = $("<td>").text(currentPosition);

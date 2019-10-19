@@ -66,19 +66,19 @@
                 <h5 class="grey lighten-4 title">Table Reservation</h5>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input placeholder="Gerar" id="name-input" type="text" class="validate">
+                        <input placeholder="John Smith" id="name-input" type="text" class="validate">
                         <label for="name">Name</label>
                     </div>
                     <div class="input-field col s12">
-                        <input placeholder="425-555-6969" id="phone-input" type="tel" class="validate">
+                        <input placeholder="444-555-6666" id="phone-input" type="tel" class="validate">
                         <label for="phone_number">Phone Number</label>
                     </div>
                     <div class="input-field col s12">
-                        <input placeholder="gerar.is.cool@gmail.com" id="email-input" type="email" class="validate">
+                        <input placeholder="john.smith@gmail.com" id="email-input" type="email" class="validate">
                         <label for="email">Email</label>
                     </div>
                     <div class="input-field col s12">
-                        <input placeholder="69" id="id-input" type="text" class="validate">
+                        <input placeholder="72" id="id-input" type="text" class="validate">
                         <label for="unique_id">Unique ID</label>
                     </div>
                     <div class="center-align col s12">
@@ -90,9 +90,9 @@
     </div>
     <div class="container">
         <div class="footer">
-            <a href="#">API Table Link</a>
+            <a href="/api/tables/">API Table Link</a>
             <span> | </span>
-            <a href="#">API Wait List</a>
+            <a href="/api/waitlist/">API Wait List</a>
         </div>
     </div>
     <!-- jQuery -->
@@ -109,16 +109,18 @@
                 email: $("#email-input").val().trim(),
                 id: $("#id-input").val().trim()
             };
+            emptyForm();
+           
 
-            $.get(url + "/tables/current/", function (data) {
+            $.get(url + "/api/tables/", function (data) {
                 if (data.length < 5) {
-                    $.post("/tables/current", newReservation)
+                    $.post("/api/tables/", newReservation)
                         .then(function (data) {
                             console.log("reserve.html", data);
                             M.toast({html: 'You have been added to the current reservations!'});
                         });
                 } else {
-                    $.post("/tables/waiting/", newReservation)
+                    $.post("/api/waitlist/", newReservation)
                         .then(function (data) {
                             console.log("reserve.html", data);
                             M.toast({html: 'You have been added to the waitlist!'})
@@ -126,6 +128,13 @@
                 }
             });
         });
+
+        function emptyForm() {
+            $("#name-input").val("");
+            $("#phone-input").val("");
+            $("#email-input").val("");
+            $("#id-input").val("");
+        }
     </script>
 </body>
 

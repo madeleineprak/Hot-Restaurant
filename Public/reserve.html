@@ -9,28 +9,43 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Hot Restaurant</title>
+    <title>Reservation Page</title>
     <style>
+        h1 {
+            font-size: 3.5rem;
+        }
+
+        h4 {
+            font-size: 2rem;
+        }
+
+        h5 {
+            font-size: 1.75rem;
+        }
+
+        h1{
+            font-weight: 700;
+        }
+
+        h4,
+        h5 {
+            font-weight: 500;
+        }
+
+        /* Title area */
         .header {
             padding: 2rem 5rem;
         }
-
         .title {
             padding: 1rem 0;
             padding-left: 1rem;
         }
-
-        h1,
-        h4 {
-            font-weight: 700;
-        }
-
         .card-panel {
             border: 1px solid grey;
         }
-
-        .gerar-head {
-            width: 3rem;
+        .logo {
+            width: 3.5rem;
+            transform: translateY(10px);
         }
     </style>
 </head>
@@ -39,13 +54,12 @@
     <div class="row">
         <div class="col s12 m10 offset-m1">
             <div class="section center-align header grey lighten-4">
-                <!-- <span><img class="gerar-head left-align" src="photos/gerar.png" alt="Gerar Head"></span> -->
-                <h1>Hot Restaurant</h1>
+                <h1>H<span><img class="logo" src="photos/hotcake.png" alt="Hotcake"></span>t Restaurant</h1>
                 <div class="divider"></div>
-                <h4>Current Reservations and Waiting List</h4>
+                <h4>Make your reservation</h4>
                 <div class="section">
-                    <a class="waves-effect waves-light btn" href="/tables">View Tables</a>
-                    <a class="waves-effect waves-light btn" href="/"><i class="material-icons">home</i></a>
+                    <a class="waves-effect waves-light btn blue darken-3" href="/tables">View Tables</a>
+                    <a class="waves-effect waves-light btn grey lighten-1" href="/"><i class="material-icons">home</i></a>
                 </div>
             </div>
             <div class="section">
@@ -101,11 +115,13 @@
                     $.post("/tables/current", newReservation)
                         .then(function (data) {
                             console.log("reserve.html", data);
+                            M.toast({html: 'You have been added to the current reservations!'});
                         });
                 } else {
                     $.post("/tables/waiting/", newReservation)
                         .then(function (data) {
                             console.log("reserve.html", data);
+                            M.toast({html: 'You have been added to the waitlist!'})
                         });
                 }
             });

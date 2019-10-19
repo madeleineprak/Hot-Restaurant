@@ -9,28 +9,48 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Hot Restaurant</title>
+    <title>Tables Page</title>
     <style>
+        h1 {
+            font-size: 3.5rem;
+        }
+
+        h4 {
+            font-size: 2rem;
+        }
+
+        h5 {
+            font-size: 1.75rem;
+        }
+
+        h1 {
+            font-weight: 700;
+        }
+
+        h4,
+        h5 {
+            font-weight: 500;
+        }
+
+        /* Title area */
         .header {
             padding: 2rem 5rem;
         }
+        .card-panel {
+            border: 1px solid grey;
+        }
+        .logo {
+            width: 3.5rem;
+            transform: translateY(10px);
+        }
 
+        /* Table Area */
         .title {
             padding: 1rem 0;
             padding-left: 1rem;
         }
-
-        h1,
-        h4 {
-            font-weight: 700;
-        }
-
-        .card-panel {
-            border: 1px solid grey;
-        }
-
-        .gerar-head {
-            width: 3rem;
+        td {
+            font-size: 1.5rem;
         }
     </style>
 </head>
@@ -40,17 +60,17 @@
         <div class="col s12 m10 offset-m1">
             <div class="section center-align header grey lighten-4">
                 <!-- <span><img class="gerar-head left-align" src="photos/gerar.png" alt="Gerar Head"></span> -->
-                <h1>Hot Restaurant</h1>
+                <h1>H<span><img class="logo" src="photos/hotcake.png" alt="Hotcake"></span>t Restaurant</h1>
                 <div class="divider"></div>
                 <h4>Current Reservations and Waiting List</h4>
                 <div class="section">
-                    <a class="waves-effect waves-light btn" href="/reserve">Make Reservation</a>
-                    <a class="waves-effect waves-light btn" href="/"><i class="material-icons">home</i></a>
+                    <a class="waves-effect waves-light btn red lighten-1" href="/reserve"><i class="material-icons left">event_available</i> Make Reservation</a>
+                    <a class="waves-effect waves-light btn grey lighten-1" href="/"><i class="material-icons">home</i></a>
                 </div>
             </div>
             <section>
                 <h5 class="grey lighten-4 title">Current Reservations</h5>
-                <table class="s12 m10 offset-m1">
+                <table class="s12 m10 offset-m1 striped">
                     <thead>
                         <tr>
                             <td>Position</td>
@@ -64,14 +84,14 @@
             </section>
             <section>
                 <h5 class="grey lighten-4 title">Waitlist</h5>
-                <table class="s12 m10 offset-m1">
+                <table class="s12 m10 offset-m1 striped">
                     <thead>
                         <tr>
                             <td>Position</td>
                             <td>Name</td>
                         </tr>
                     </thead>
-                    <tbody id="wait-list">
+                        <tbody id="wait-list">
                     </tbody>
                 </table>
             </section>

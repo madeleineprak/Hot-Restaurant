@@ -31,6 +31,9 @@ var waitlist = [
 
 // Routes
 
+// Gets all the files in the public folder
+app.use(express.static("Public"));
+
 // Home
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "/public/index.html"))

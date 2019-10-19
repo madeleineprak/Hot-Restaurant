@@ -11,17 +11,49 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Hot Restaurant</title>
     <style>
-        .header {
-            padding: 2rem 5rem;
+        h1 {
+            font-size: 3.5rem;
         }
 
-        h1,
         h4 {
+            font-size: 2rem;
+        }
+
+        h5 {
+            font-size: 1.75rem;
+        }
+
+        h1{
             font-weight: 700;
         }
 
-        .gerar-head {
-            width: 3rem;
+        h4,
+        h5 {
+            font-weight: 500;
+        }
+
+        /* Title area */
+        .header {
+            padding: 2rem 5rem;
+        }
+        .title {
+            padding: 1rem 0;
+            padding-left: 1rem;
+        }
+        .card-panel {
+            border: 1px solid grey;
+        }
+        .logo {
+            width: 3.5rem;
+            transform: translateY(10px);
+        }
+        
+        /* Carousel */
+        .carousel {
+            height: 200px;
+        }
+        .carousel .carousel-item{
+            width: 300px;
         }
     </style>
 </head>
@@ -30,13 +62,17 @@
     <div class="row">
         <div class="col s12 m10 offset-m1">
             <div class="section center-align header grey lighten-4">
-                <!-- <span><img class="gerar-head left-align" src="photos/gerar.png" alt="Gerar Head"></span> -->
-                <h1>Hot Restaurant</h1>
+                <h1>H<span><img class="logo" src="photos/hotcake.png" alt="Hotcake"></span>t Restaurant</h1>
                 <div class="divider"></div>
                 <h4>Book your seat before they are all gone!</h4>
-                <div class="section">
-                    <a class="waves-effect waves-light btn" href="/tables">View Tables</a>
-                    <a class="waves-effect waves-light btn" href="/reserve">Make Reservation</a>
+                    <div class="carousel">
+                        <a class="carousel-item"><img src="photos/pancake1.jpg"></a>
+                        <a class="carousel-item"><img src="photos/pancake3.jpg"></a>
+                        <a class="carousel-item"><img src="photos/waffle2.jpg"></a>
+                    </div>
+                    <div class="section">
+                    <a class="waves-effect waves-light btn blue darken-3" href="/tables">View Tables</a>
+                    <a class="waves-effect waves-light btn red lighten-1" href="/reserve"><i class="material-icons left">event_available</i>Make Reservation</a>
                 </div>
             </div>
         </div>
@@ -52,6 +88,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        // Carousel
+        $('.carousel').carousel({
+            // fullWidth: true,
+            indicators: true,
+            dist: -90
+        });
+    </script>
 </body>
 
 </html>
